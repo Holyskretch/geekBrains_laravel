@@ -1,0 +1,85 @@
+html, body {
+    width: 1920px;
+    margin: 0 auto;
+    height: 100%;
+}
+.container{
+    margin: 0;
+    position: relative;
+    height: 100%;
+}
+header{
+    margin: 0;
+    width: 100%;
+    display: flex;
+}
+nav{
+    width: 10%;
+    display: grid;
+    background-color: antiquewhite;
+}
+.logo{
+    background-color: lightgreen;
+    padding: 30px 30px 30px 30px;
+    width: 90%;
+ }
+.logo a{
+    width: 19%;
+    margin: 0 auto;
+}
+header a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+header a:hover{
+    text-decoration: underline;
+}
+.headerTitle{
+    margin: 0;
+    text-align: center;
+}
+main{
+    padding: 30px;
+    box-sizing: border-box;
+}
+.mainBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.links{
+    text-decoration: none;
+    padding: 2px;
+    margin: 5px;
+    background-color: bisque;
+    color: black;
+}
+.links:hover{
+    background-color: burlywood;
+}
+.links:active{
+    background-color: lightgreen;
+}
+form input{
+    margin: 5px;
+}
+footer{
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: lightgray;
+    min-height: 30px;
+    box-sizing: border-box;
+}
+.footerText{
+
+}
