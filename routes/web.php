@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', 'NewsController@index')->name('index');
 
 
 Route::group(['prefix'=> 'news'], function (){
-    Route::get('/categories', 'NewsController@categories')->name('news.categories');
-    Route::get('/categoriesItem/{c}', 'NewsController@categoriesItem')
-            ->where('c', '\w+')->name('news.categoriesItem');
+    Route::get('/categoriesItem/{categoryId}', 'NewsController@categoriesItem')
+            ->where('categoryId', '\d+')->name('news.categoriesItem');
     Route::get('/news/{id}', 'NewsController@news')
         ->where('id', '\d+')->name('news.news');
     Route::get('/authorization', 'NewsController@authorization')->name('news.authorization');
@@ -31,3 +28,7 @@ Route::group(['prefix'=> 'admin'], function (){
     Route::get('/', 'Admin\AdminController@admin')->name('admin');
     Route::get('/adding', 'Admin\AdminController@adding')->name('admin.adding');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

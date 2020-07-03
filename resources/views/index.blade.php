@@ -1,37 +1,53 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-<header>
-    <nav>
-        <a href="{{route('index')}}">Main</a>
-        <a href="{{route('news.authorization')}}">Authorization</a>
-        <a href="{{route('admin')}}">Admin</a>
-    </nav>
-    <div class="logo">
-        <a href="{{route('index')}}">
-            <img src="img/News_icon.png" alt="newsIcon" width="50px" height="50px">
-            <h3 class="headerTitle">A.S.B. news portal for portfolio.</h3>
-        </a>
-    </div>
-</header>
-<main>
-    <div class="mainBlock">
-        <h1>Welcome to our news portal!</h1>
-        <a href="{{route('news.categories')}}" class="links"><span>Watch all news by categories</span></a>
-    </div>
-</main>
-<footer>
-    <span class="footerText">All rights reserved Geekbrains &copy;</span>
-</footer>
-</div>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title')
+    @parent Main
+@endsection
+
+@section('content')
+    <div class="col-md-8 blog-main">
+        <h3 class="pb-4 mb-4 font-italic border-bottom">
+            From the Firehose
+        </h3>
+
+        <div class="blog-post">
+            <h2 class="blog-post-title">Sample blog post</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+            <hr>
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+                <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h2>Heading</h2>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <pre><code>Example code block</code></pre>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+                <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+                <li>Donec id elit non mi porta gravida at eget metus.</li>
+                <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+            <ol>
+                <li>Vestibulum id ligula porta felis euismod semper.</li>
+                <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+                <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+            </ol>
+            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+        </div><!-- /.blog-post -->
+
+
+        <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+        </nav>
+
+    </div><!-- /.blog-main -->
+@endsection
