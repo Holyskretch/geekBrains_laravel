@@ -47,6 +47,8 @@
             <div>
                 <a href="{{route('index')}}" class="p-2 text-muted">Main</a>
                 <a href="{{route('news.authorization')}}" class="p-2 text-muted">Authorization</a>
+                <a href="{{route('form.feedback')}}" class="p-2 text-muted">Feedback</a>
+                <a href="{{route('form.uploading')}}" class="p-2 text-muted">Uploading</a>
                 <a href="{{route('admin')}}" class="p-2 text-muted">For Admin</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
@@ -60,9 +62,11 @@
 
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
+            @if(isset($categories))
             @foreach($categories as $c)
                 <a href="{{route('news.categoriesItem', ['categoryId'=> $c['id']])}}" class="p-2 text-muted">{{$c['name']}}</a>
             @endforeach
+            @endif
         </nav>
     </div>
     <x-top-news></x-top-news>

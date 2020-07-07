@@ -29,6 +29,13 @@ Route::group(['prefix'=> 'admin'], function (){
     Route::get('/adding', 'Admin\AdminController@adding')->name('admin.adding');
 });
 
+Route::group(['prefix' => 'form'], function (){
+    Route::get('/feedback', 'FormController@feedback')->name('form.feedback');
+    Route::get('/uploading', 'FormController@uploading')->name('form.uploading');
+    Route::put('/feedback', 'FormController@feedbackAdd')->name('form.feedbackAdd');
+    Route::put('/uploading', 'FormController@uploadingAdd')->name('form.uploadingAdd');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
