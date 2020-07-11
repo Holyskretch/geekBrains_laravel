@@ -6,7 +6,7 @@
     <meta name="description" content="Пример на bootstrap 4: Блог - двухколоночный макет блога с пользовательской навигацией, заголовком и содержанием.">
 
     <title>@section('title')@show</title>
-
+    <link rel="shortcut icon" href="/public/img/newspaper.png" type="image/png">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">

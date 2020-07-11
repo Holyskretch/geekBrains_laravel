@@ -27,9 +27,7 @@
         <div class="mainBlock">
             <h1>News categories</h1>
             @foreach($news as $n)
-                @if($n['id'] < 6)
-                    <a href="{{route('news.categoriesItem', ['c'=> $n['category']])}}" class="links">{{$n['category']}}</a>
-                @endif
+                    <a href="{{route('news.categoriesItem', ['c'=> $n->category_id])}}" class="links">{{$n->category_id}}</a>
             @endforeach
         </div>
     </main>

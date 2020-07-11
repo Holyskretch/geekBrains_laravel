@@ -6,7 +6,7 @@
     <meta name="description" content="Пример на bootstrap 4: Блог - двухколоночный макет блога с пользовательской навигацией, заголовком и содержанием.">
 
     <title>@section('title')@show</title>
-
+    <link rel="shortcut icon" href="/public/img/newspaper.png" type="image/png">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
@@ -64,7 +64,7 @@
         <nav class="nav d-flex justify-content-between">
             @if(isset($categories))
             @foreach($categories as $c)
-                <a href="{{route('news.categoriesItem', ['categoryId'=> $c['id']])}}" class="p-2 text-muted">{{$c['name']}}</a>
+                <a href="{{route('news.categoriesItem', ['categoryId'=> $c->category_id])}}" class="p-2 text-muted">{{$c->categoryName}}</a>
             @endforeach
             @endif
         </nav>

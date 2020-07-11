@@ -10937,18 +10937,19 @@ a.text-dark:focus {
     box-sizing: border-box;
 }
 .blog-main-item{
-    border: 1px solid black;
-    margin: 0 0 5px 0;
+    border-bottom: 1px solid lightgrey;
+    margin: 0 0 10px 0;
     padding: 5px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .blog-main-item-title{
-
+    text-align: center;
 }
 
 .blog-main-item-btn{
@@ -10956,4 +10957,10 @@ a.text-dark:focus {
 }
 .nav-scroller{
     background-color: #e2d2d2;
+}
+.news-time{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: darkgrey;
 }
