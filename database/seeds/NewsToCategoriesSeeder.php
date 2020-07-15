@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NewsSeeder extends Seeder
+class NewsToCategoriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('news')->insert($this->getData());
+        DB::table('news_to_categories')->insert($this->getData());
     }
     private function getData()
     {
@@ -21,10 +21,8 @@ class NewsSeeder extends Seeder
         $data = [];
         for($i = 0; $i < 50; $i++){
             $data[] =[
-                'title' =>$faker->sentence(rand(3,10)),
-                'summary' => $faker->realText(rand(30,70)),
-                'text' => $faker->realText(rand(100,200)),
-                'created_at' => $faker->dateTime(),
+                'category_id' => $faker->numberBetween(1,5),
+                'news_id' => $faker->numberBetween(1,50)
             ];
         }
         return $data;

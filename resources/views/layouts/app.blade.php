@@ -62,11 +62,11 @@
 
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            @if(isset($categories))
+{{--            @if(isset($categories))--}}
             @foreach($categories as $c)
-                <a href="{{route('news.categoriesItem', ['categoryId'=> $c->category_id])}}" class="p-2 text-muted">{{$c->categoryName}}</a>
+                <a href="{{route('news.categoriesItem', ['slug'=> $c->slug])}}" class="p-2 text-muted">{{$c->categoryName}}</a>
             @endforeach
-            @endif
+{{--            @endif--}}
         </nav>
     </div>
     <x-top-news></x-top-news>

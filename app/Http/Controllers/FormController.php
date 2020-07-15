@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
     public function feedback(){
-        return view('form.feedback');
+        return view('form.feedback', ['categories' => $this->getAllCategories()]);
     }
 
     public function uploading(){
-        return view('form.uploading');
+        return view('form.uploading', ['categories' => $this->getAllCategories()]);
     }
 
     public function feedbackAdd(FeedbackRequest $request){
@@ -21,7 +21,6 @@ class FormController extends Controller
         $comment = $request->input('comment');
 
         $str = "Login = ".$login." Comment = ".$comment."; ";
-        file_put_contents(storage_path('app/public/feedback.txt'), $str, FILE_APPEND);
 
         return redirect()->route('index');
     }
@@ -33,7 +32,6 @@ class FormController extends Controller
         $text = $request->input('text');
 
         $str = "Name = ".$name." Phone = ".$phone." Email = ".$email." Text = ".$text;
-        file_put_contents(storage_path('app/public/uploading.txt'), $str, FILE_APPEND);
 
         return redirect()->route('index');
     }

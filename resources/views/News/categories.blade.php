@@ -27,7 +27,7 @@
         <div class="mainBlock">
             <h1>News categories</h1>
             @foreach($news as $n)
-                    <a href="{{route('news.categoriesItem', ['c'=> $n->category_id])}}" class="links">{{$n->category_id}}</a>
+                    <a href="{{route('news.categoriesItem', ['c'=> $n->id])}}" class="links">{{$n->id}}</a>
             @endforeach
         </div>
     </main>

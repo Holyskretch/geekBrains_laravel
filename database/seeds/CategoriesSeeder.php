@@ -21,7 +21,9 @@ class CategoriesSeeder extends Seeder
         $data = [];
         for($i = 0; $i < 5; $i++){
             $data[] =[
-                'categoryName' => $faker->word(1)
+                'categoryName' => $faker->word(1),
+                'slug' => $faker->word(1),
+                'created_at' => $faker->dateTime(),
             ];
         }
         return $data;

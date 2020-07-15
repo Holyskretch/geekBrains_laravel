@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'NewsController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('index');
 
 
 Route::group(['prefix'=> 'news'], function (){
-    Route::get('/categoriesItem/{categoryId}', 'NewsController@categoriesItem')
-            ->where('categoryId', '\d+')->name('news.categoriesItem');
-    Route::get('/news/{id}', 'NewsController@news')
-        ->where('id', '\d+')->name('news.news');
+    Route::get('/categoriesItem/{slug}', 'NewsController@categoriesItem')->name('news.categoriesItem');
+    Route::get('/news/{news}', 'NewsController@news')->name('news.news');
     Route::get('/authorization', 'NewsController@authorization')->name('news.authorization');
 });
 
@@ -38,4 +36,3 @@ Route::group(['prefix' => 'form'], function (){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

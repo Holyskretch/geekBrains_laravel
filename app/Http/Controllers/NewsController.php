@@ -2,37 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\News;
+use App\Models\Category;
+use App\Models\News;
+use App\Models\Source;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-
-
-    public function index()
+    public function categoriesItem(string $slug)
     {
-        $news = (new News())->getAllNews();
-        $categories = (new News())->getAllCategories();
-        return view('index', ['categories' => $categories, 'news'=>$news]);
-    }
-
-
-    public function categoriesItem(string $categoryId)
-    {
-        $news = (new News())->getAllNews();
-        $categories = (new News())->getAllCategories();
-        return view('news.categoriesItem', ['categories' => $categories, 'news' => $news, 'categoryId' => $categoryId]);
+        $category = Category::where('slug', $slug)->first();
+        if(!$category){
+            return abort(404);
+        }
+        return view('news.categoriesItem', ['category' => $category, 'categories' => $this->getAllCategories()]);
     }
     public function news(int $id)
     {
-        $news = (new News())->getOneNews($id);
-        $categories = (new News())->getAllCategories();
-        return view('news.news',['categories' => $categories, 'news' => $news]);
+        $news = News::find($id);
+        if (!$news){
+            return abort(404);
+        }
+        $source = Source::all(); //where('id', $id)->first()
+//dd($source);
+        return view('news.news',['categories' => $this->getAllCategories(), 'news' => $news , 'source'=> $source]);
     }
     public function authorization()
     {
-        $categories = (new News())->getAllCategories();
-        return view('news.authorization', ['categories' => $categories]);
+        return view('news.authorization', ['categories' => $this->getAllCategories()]);
     }
 }
 

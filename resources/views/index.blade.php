@@ -16,7 +16,7 @@
                         <h3 class="font-italic blog-main-item-title">{{$n->title}}</h3>
                         <p class="font-italic blog-main-item-title"> {{$n->summary}}</p>
                         <span class="font-italic news-time">{{$n->created_at}}</span>
-                        <a href="{{route('news.news', ['id'=> $n->news_id])}}" class="blog-main-item-btn">Read full</a>
+                        <a href="{{route('news.news', ['news'=> $n])}}" class="blog-main-item-btn">Read full</a>
                     </div>
             @endforeach
         </div>

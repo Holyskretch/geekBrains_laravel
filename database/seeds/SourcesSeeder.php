@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NewsSeeder extends Seeder
+class SourcesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,19 +12,17 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('news')->insert($this->getData());
+        DB::table('sources')->insert($this->getData());
     }
+
     private function getData()
     {
         $faker = Faker\Factory::create('ru_RU');
 
         $data = [];
-        for($i = 0; $i < 50; $i++){
+        for($i = 0; $i < 10; $i++){
             $data[] =[
-                'title' =>$faker->sentence(rand(3,10)),
-                'summary' => $faker->realText(rand(30,70)),
-                'text' => $faker->realText(rand(100,200)),
-                'created_at' => $faker->dateTime(),
+                'sourceName' => $faker->domainName,
             ];
         }
         return $data;
