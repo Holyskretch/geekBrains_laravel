@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="col-md-8 blog-main">
-        <h1>Редактирование новости #{{$news->id}}</h1>
+        <h1 class="pb-4 mb-4 font-italic border-bottom">Редактирование новости № {{$news->id}}</h1>
         <br>
         <form method="post" action="{{ route('news.update', ['news' => $news->id]) }}">
             @method('PUT')
@@ -38,5 +38,7 @@
             @endif
             <button type="submit" class="btn btn-success">Редактировать</button>
         </form>
+        <br><br>
+        <a href="{{route('news.destroy', ['news'=> $news])}}" class="btn btn-success">Удалить новость</a>
     </div>
 @endsection

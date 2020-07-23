@@ -27,9 +27,5 @@ class NewsController extends Controller
 
         return view('news.news',['categories' => $this->getAllCategories(), 'news' => $news , 'source'=> $source]);
     }
-    public function authorization()
-    {
-        return view('news.authorization', ['categories' => $this->getAllCategories()]);
-    }
 }
 

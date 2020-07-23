@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\Source;
+use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -23,5 +24,8 @@ class Controller extends BaseController
     }
     public function getAllSources(){
         return Source::all();
+    }
+    public function getAllUsers(){
+        return User::orderBy('updated_at', 'desc')->paginate(10);
     }
 }

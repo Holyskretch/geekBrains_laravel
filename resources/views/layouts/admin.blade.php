@@ -40,11 +40,10 @@
                     <a href="{{route('admin')}}" class="p-2 text-muted">Main</a>
                     <a href="{{route('news.index')}}" class="p-2 text-muted">All News</a>
                     <a href="{{route('news.create')}}" class="p-2 text-muted">Create News</a>
-    {{--                <a href="{{route('news.edit')}}" class="p-2 text-muted">Edit News</a>--}}
                     <a href="{{route('categories.index')}}" class="p-2 text-muted">All Categories</a>
                     <a href="{{route('categories.create')}}" class="p-2 text-muted">Create Category</a>
-    {{--                <a href="{{route('admin.editCategory')}}" class="p-2 text-muted">Edit Category</a>--}}
-                    <a href="{{route('index')}}" class="p-2 text-muted">Site</a>
+                    <a href="{{route('users.index')}}" class="p-2 text-muted">Users</a>
+                    <a href="{{route('index')}}" class="p-2 text-muted site">Site</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <a class="text-muted" href="#" aria-label="Search">
@@ -55,9 +54,7 @@
         </header>
 
         <main role="main">
-            <div class="row">
                 @yield('content')
-            </div>
         </main>
         <x-footer></x-footer>
     </div>

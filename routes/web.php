@@ -19,13 +19,24 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::group(['prefix'=> 'news'], function (){
     Route::get('/categoriesItem/{slug}', 'NewsController@categoriesItem')->name('news.categoriesItem');
     Route::get('/news/{news}', 'NewsController@news')->name('news.news');
-    Route::get('/authorization', 'NewsController@authorization')->name('news.authorization');
 });
 
-Route::group(['prefix'=> 'admin'], function (){
-    Route::get('/', 'Admin\AdminController@admin')->name('admin');
-    Route::resource('/categories', Admin\CategoryController::class);
-    Route::resource('/news', Admin\NewsController::class);
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('logout', function (){
+        Auth::logout();
+        return redirect('/login');
+    });
+    //account
+    Route::get('/account', 'Account\IndexController@index')->name('account');
+    //admin
+    Route::group(['prefix'=> 'admin', 'middleware' => 'admin'], function (){
+        Route::get('/', 'Admin\AdminController@admin')->name('admin');
+        Route::resource('/categories', Admin\CategoryController::class);
+        Route::resource('/news', Admin\NewsController::class);
+        Route::resource('/users', Admin\UserController::class);
+        //Route::get('/Users', 'Admin\AdminController@users')->name('admin.users');
+        //Route::get('/editUser', 'Admin\AdminController@editUser')->name('admin.editUser');
+    });
 });
 
 Route::group(['prefix' => 'form'], function (){
@@ -35,5 +46,5 @@ Route::group(['prefix' => 'form'], function (){
     Route::put('/uploading', 'FormController@uploadingAdd')->name('form.uploadingAdd');
 });
 
-//Auth::routes();
+Auth::routes();
 

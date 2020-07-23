@@ -105,6 +105,10 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        //Поправить, не работает
+//        $news->categories()->detach();
+//        $news->sources()->detach();
+//        $news->delete();
+//        return redirect(route('news.index'));
     }
 }

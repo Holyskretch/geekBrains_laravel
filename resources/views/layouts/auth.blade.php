@@ -49,6 +49,9 @@
                 <a href="{{route('form.feedback')}}" class="p-2 text-muted">Feedback</a>
                 <a href="{{route('form.uploading')}}" class="p-2 text-muted">Uploading</a>
 
+                {{--                @if(Auth::check()) // проверка на админа--}}
+                {{--                    <a href="{{route('admin')}}" class="p-2 text-muted">For Admin</a>--}}
+                {{--                @endif--}}
                 <div class="login-menu">
                     @if(!Auth::check())
                         <a href="{{route('login')}}" class="p-2 text-muted">Log In</a>
@@ -56,9 +59,6 @@
                     @else
                         <a href="{{route('account')}}" class="p-2 text-muted">Personal account <span class="user-name">({{ Auth::user()->name }})</span></a>
                         <a href="{{route('logout')}}" class="p-2 text-muted">Log Out</a>
-                    @endif
-                    @if(Auth::user()['name'] == 'admin')
-                        <a href="{{route('admin')}}" class="p-2 text-muted">For Admin</a>
                     @endif
                 </div>
             </div>
@@ -71,30 +71,15 @@
         </div>
     </header>
 
-    <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-            @if(isset($categories))
-            @foreach($categories as $c)
-                <a href="{{route('news.categoriesItem', ['slug'=> $c->slug])}}" class="p-2 text-muted">{{$c->categoryName}}</a>
-            @endforeach
-            @endif
-        </nav>
-    </div>
-    <x-top-news></x-top-news>
+    <main role="main" class="container">
+        <div class="row">
+            @yield('content')
+        </div><!-- /.row -->
 
-</div>
+    </main><!-- /.container -->
 
-<main role="main" class="container">
-    <div class="row">
-        @yield('content')
-        <x-sidebar></x-sidebar>
+    <x-footer></x-footer>
 
-    </div><!-- /.row -->
-
-</main><!-- /.container -->
-
-<x-footer></x-footer>
-
-<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

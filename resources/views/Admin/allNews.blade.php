@@ -6,9 +6,7 @@
 
 @section('content')
     <div class="col-md-8 blog-main">
-        <h1 class="pb-4 mb-4 font-italic border-bottom">
-            Все новости портала
-        </h1>
+        <h1 class="pb-4 mb-4 font-italic border-bottom">Все новости портала</h1>
 
         <div class="blog-post">
             @foreach($news as $n)

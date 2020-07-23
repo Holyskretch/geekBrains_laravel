@@ -10931,7 +10931,7 @@ a.text-dark:focus {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 0;
+    margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -10948,6 +10948,7 @@ a.text-dark:focus {
 }
 
 .blog-main-item-title{
+    width: 100%;
     text-align: center;
 }
 
@@ -10968,4 +10969,27 @@ a.text-dark:focus {
 }
 .blog-footer{
     margin-top: 50px;
+}
+.header{
+    position: relative;
+}
+.login-menu{
+    position: absolute;
+    right: 370px;
+    top: 0;
+}
+.error{
+    color: red;
+}
+.user-name{
+    color: black;
+}
+.site{
+    margin-left: 150px;
+}
+.is-admin{
+    width: 100px;
+}
+.user-form{
+    align-items: unset;
 }
