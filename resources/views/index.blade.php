@@ -7,7 +7,7 @@
 @section('content')
     <div class="col-md-8 blog-main">
         <h3 class="pb-4 mb-4 font-italic border-bottom">
-            From the Firehose
+            Все новости портала
         </h3>
 
         <div class="blog-post">
@@ -15,7 +15,8 @@
                     <div class="blog-main-item">
                         <h3 class="font-italic blog-main-item-title">{{$n->title}}</h3>
                         <p class="font-italic blog-main-item-title"> {{$n->summary}}</p>
-                        <span class="font-italic news-time">{{$n->created_at}}</span>
+                        <span class="font-italic news-time">@if(!is_null($n->updated_at)) {{ $n->updated_at->format('d-m-Y H:i') }}
+                            @else {{ $n->created_at->format('d-m-Y H:i') }}  @endif</span>
                         <a href="{{route('news.news', ['news'=> $n])}}" class="blog-main-item-btn">Read full</a>
                     </div>
             @endforeach
@@ -23,8 +24,7 @@
 
 
         <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+            {!! $news->links() !!}
         </nav>
 
     </div><!-- /.blog-main -->

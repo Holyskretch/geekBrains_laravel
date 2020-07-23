@@ -11,8 +11,4 @@ class AdminController extends Controller
     {
         return view('admin.main');
     }
-    public function adding()
-    {
-        return view('admin.adding');
-    }
 }

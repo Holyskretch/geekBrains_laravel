@@ -23,8 +23,8 @@ class NewsController extends Controller
         if (!$news){
             return abort(404);
         }
-        $source = Source::all(); //where('id', $id)->first()
-//dd($source);
+        $source = Source::all();
+
         return view('news.news',['categories' => $this->getAllCategories(), 'news' => $news , 'source'=> $source]);
     }
     public function authorization()

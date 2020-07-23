@@ -573,11 +573,10 @@ pre code {
 }
 
 .container {
-  width: 100%;
+  width: 1280px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 @media (min-width: 576px) {
@@ -10963,4 +10962,10 @@ a.text-dark:focus {
     right: 0px;
     bottom: 0px;
     color: darkgrey;
+}
+.form-categories-block{
+    border: 1px solid black;
+}
+.blog-footer{
+    margin-top: 50px;
 }

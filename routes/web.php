@@ -24,7 +24,8 @@ Route::group(['prefix'=> 'news'], function (){
 
 Route::group(['prefix'=> 'admin'], function (){
     Route::get('/', 'Admin\AdminController@admin')->name('admin');
-    Route::get('/adding', 'Admin\AdminController@adding')->name('admin.adding');
+    Route::resource('/categories', Admin\CategoryController::class);
+    Route::resource('/news', Admin\NewsController::class);
 });
 
 Route::group(['prefix' => 'form'], function (){
@@ -34,5 +35,5 @@ Route::group(['prefix' => 'form'], function (){
     Route::put('/uploading', 'FormController@uploadingAdd')->name('form.uploadingAdd');
 });
 
-Auth::routes();
+//Auth::routes();
 

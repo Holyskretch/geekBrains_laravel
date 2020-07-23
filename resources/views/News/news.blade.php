@@ -20,4 +20,3 @@
 
 
 @endsection
-<a href="https://geekbrains.ru/">Geekbrains</a>
